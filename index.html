@@ -61,6 +61,8 @@
   }
   @media (max-width:820px){ #adv2-eco-grid{grid-template-columns:1fr !important} #adv2-forma-grid{grid-template-columns:1fr !important} }
   @media (min-width:1060px){ #adv-sticky{display:none} }
+  @media (max-width:1059px){ #adv-wa{bottom:92px !important;right:14px !important} }
+  @keyframes advWaIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
   @media (max-width:520px){ #adv-logo{width:150px !important} }
   @media (max-width:900px){ #adv3-ia-map{grid-template-columns:repeat(2,minmax(0,1fr)) !important;grid-template-areas:"ia ia" "room sense" "flow core" !important} #adv3-ia-pts{grid-template-columns:1fr !important} }
   @media (max-width:1180px){ #adv2-nuria-grid{grid-template-columns:1fr !important} #adv2-nuria-grid > div:first-child{min-height:200px} #adv2-nuria-txt{background:rgba(255,255,255,.92)} }
@@ -868,7 +870,7 @@
           <li><strong style="color:#16374D">Inscrita en el Registro Mercantil de MADRID , Tomo: 19311, Folio:25, Sección:8, Hoja:M338356</strong></li>
           <li><strong style="color:#16374D">Domicilio Social</strong>: C/COLADA DE POZUELO 20, 28925, ALCORCON, MADRID.</li>
           <li><strong style="color:#16374D">Actividad</strong>: TELECOMUNICACIONES</li>
-          <li><strong style="color:#16374D">Teléfono</strong>: 916324700</li>
+          <li><strong style="color:#16374D">Teléfono</strong>: <a href="tel:+34637495757" style="color:inherit">+34 637 49 57 57</a></li>
           <li><strong style="color:#16374D">eMail</strong>: <a href="mailto:mgonzalez@acebg.es">mgonzalez@acebg.es</a></li>
           <li><strong style="color:#16374D">Nombre de Dominio</strong>: <a href="https://advantecnia.com/" target="_blank" rel="noopener">advantecnia.com</a></li>
           <li><strong style="color:#16374D">Registro de Tratamientos conforme al RGPD:</strong> Clientes/Proveedores, Selección de Personal, Clientes de Terceros y Usuarios Web.</li>
@@ -949,7 +951,7 @@
       </div>
       </sc-if>
     </div>
-    <p style="margin-top:28px;font-size:14px;color:#6B7B86">Responsable: ACE BUSINESS GROUP INTERNATIONAL SA · NIF A83706721 · C/ Colada de Pozuelo 20, 28925 Alcorcón, Madrid · 916 324 700</p>
+    <p style="margin-top:28px;font-size:14px;color:#6B7B86">Responsable: ACE BUSINESS GROUP INTERNATIONAL SA · NIF A83706721 · C/ Colada de Pozuelo 20, 28925 Alcorcón, Madrid · +34 637 49 57 57</p>
   </div>
 </section>
 </sc-if>
@@ -974,7 +976,7 @@
       <p style="font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#7FD4DB">Contacto</p>
       <ul style="margin-top:16px;display:grid;gap:10px;font-size:15px">
         <li><a href="mailto:info@advantecnia.com" style="color:#C4D6DF">info@advantecnia.com</a></li>
-        <li>+34 607 55 27 33</li>
+        <li><a href="tel:+34637495757" style="color:#C4D6DF">+34 637 49 57 57</a></li>
       </ul>
     </div>
     <div>
@@ -1004,10 +1006,23 @@
   <button onClick="{{ goAuditoria }}" style="width:100%;height:52px;border:0;border-radius:999px;background:#fff;color:#0A6B75;font-size:16px;font-weight:700;cursor:pointer">Hablar con un asesor experto</button>
 </div>
 </sc-if>
+
+<div id="adv-wa" style="position:fixed;right:20px;bottom:20px;z-index:80;display:flex;flex-direction:column;align-items:flex-end;gap:12px;pointer-events:none">
+  <sc-if value="{{ waOpen }}" hint-placeholder-val="{{ false }}">
+  <div role="dialog" aria-label="WhatsApp" style="pointer-events:auto;width:min(300px, calc(100vw - 40px));background:#fff;border-radius:14px;box-shadow:0 2px 8px rgba(10,30,50,.12), 0 12px 32px rgba(10,30,50,.16);padding:18px 18px 16px;display:grid;gap:14px;animation:advWaIn .24s cubic-bezier(.4,0,.2,1)">
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px">
+      <p style="margin:0;font-size:15px;line-height:1.45;color:#16323F;text-wrap:pretty"><strong style="font-weight:700">Hola!</strong> Si quieres puedes hablarnos por aquí.</p>
+      <button onClick="{{ waClose }}" aria-label="Cerrar" style="flex:none;width:28px;height:28px;margin:-4px -6px 0 0;border:0;background:none;color:#5B7380;font-size:20px;line-height:1;cursor:pointer;border-radius:999px" style-hover="background:#EEF3F5">×</button>
+    </div>
+    <a href="https://wa.me/34607552733?text=Hola%2C%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;height:44px;border-radius:999px;background:#25D366;color:#fff;font-size:15px;font-weight:700;text-decoration:none" style-hover="background:#1EBE5A">Iniciar chat</a>
+  </div>
+  </sc-if>
+  <button onClick="{{ waToggle }}" aria-label="WhatsApp" style="pointer-events:auto;width:58px;height:58px;border:0;border-radius:999px;background:#25D366;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.22)" style-hover="background:#1EBE5A" style-active="transform:scale(.96)"><svg viewBox="0 0 32 32" width="30" height="30" aria-hidden="true"><path fill="#fff" d="M16.04 3C8.86 3 3.03 8.83 3.03 16c0 2.290.6 4.530 1.740 6.500L3 29l6.680-1.750A12.950 12.950 0 0 0 16.040 29C23.200 29 29 23.170 29 16S23.200 3 16.040 3zm0 23.670c-1.960 0-3.880-.530-5.560-1.520l-.400-.240-3.960 1.040 1.060-3.860-.260-.400A10.640 10.640 0 0 1 5.360 16c0-5.890 4.800-10.680 10.680-10.680 5.890 0 10.620 4.790 10.620 10.680 0 5.880-4.730 10.670-10.620 10.670zm5.860-8c-.320-.160-1.890-.930-2.180-1.040-.300-.100-.510-.160-.720.160-.210.320-.830 1.040-1.020 1.250-.190.210-.370.240-.690.080-.320-.160-1.350-.500-2.570-1.590-.950-.850-1.590-1.900-1.780-2.220-.190-.320-.020-.490.140-.650.140-.140.320-.370.480-.560.160-.190.210-.320.320-.530.100-.210.050-.400-.030-.560-.080-.160-.720-1.730-.990-2.370-.260-.620-.520-.540-.720-.550h-.610c-.210 0-.560.080-.850.400-.290.320-1.120 1.090-1.120 2.660s1.140 3.090 1.300 3.300c.160.210 2.250 3.430 5.450 4.810.760.330 1.350.520 1.810.670.760.240 1.460.210 2.010.130.610-.090 1.890-.770 2.150-1.520.270-.750.270-1.390.190-1.520-.080-.130-.290-.210-.610-.370z"></path></svg></button>
+</div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;startLang&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;es&quot;,&quot;en&quot;],&quot;default&quot;:&quot;es&quot;,&quot;tsType&quot;:&quot;'es' | 'en'&quot;,&quot;section&quot;:&quot;Idioma&quot;},&quot;showStickyCta&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Conversión&quot;}}">
 class Component extends DCLogic {
-  state = { page: 'home', lang: this.props.startLang || 'es', auditSent: false, ficha: null, scrolled: false, eco: null, legalTab: 'aviso' };
+  state = { page: 'home', lang: this.props.startLang || 'es', auditSent: false, ficha: null, scrolled: false, eco: null, legalTab: 'aviso', waOpen: false };
 
   async sendAudit(en) {
     const f = this.formRef && this.formRef.current;
@@ -1049,6 +1064,7 @@ class Component extends DCLogic {
     const sent = document.getElementById('adv2-top');
     const past = sent ? sent.getBoundingClientRect().bottom <= 0 : (window.scrollY || 0) > 140;
     this.setScrolled(past);
+    if (!this._waAuto && (window.scrollY || document.documentElement.scrollTop || 0) > 60) { this._waAuto = true; this.setState({ waOpen: true }); }
   };
 
   go(p) {
@@ -1321,6 +1337,9 @@ class Component extends DCLogic {
       auditBtn: this.state.auditSending ? (en ? 'Sending…' : 'Enviando…') : (en ? 'Talk to an expert advisor' : 'Hablar con un asesor experto'),
       submitAudit: () => this.sendAudit(en),
       showSticky: this.props.showStickyCta !== false,
+      waOpen: this.state.waOpen,
+      waClose: () => this.setState({ waOpen: false }),
+      waToggle: () => { this._waAuto = true; this.setState(s => ({ waOpen: !s.waOpen })); },
       setEs: () => this.setState({ lang: 'es' }),
       setEn: () => this.setState({ lang: 'en' }),
       esColor: this.state.lang === 'es' ? (p === 'home' ? '#FFFFFF' : '#0E8C99') : (p === 'home' ? 'rgba(255,255,255,.7)' : '#55636E'),
@@ -1602,6 +1621,9 @@ Component.FAM = [
 Component.FASES = [{"n":"01","t":"Diagnóstico","d":"Analizamos tu entorno, procesos y red actual, y los datos que Connect.IA podrá aprovechar."},{"n":"02","t":"Diseño","d":"Definimos la arquitectura, las soluciones por área y los parámetros de excelencia que Connect.IA debe cumplir."},{"n":"03","t":"Despliegue","d":"Instalamos SmartRoom, red y soluciones, con Connect.IA activa desde el primer día."},{"n":"04","t":"Integración","d":"Conectamos todo con SmartCore: el Servidor MQTT y el IoT, con Connect.IA al mando."},{"n":"05","t":"Operación","d":"Connect.IA monitoriza, aprende y mejora; nuestro equipo forma y da soporte continuo."}];
 
 Component.DICT = {
+  "Hola!": "Hi!",
+  "Si quieres puedes hablarnos por aquí.": "If you like, you can talk to us here.",
+  "Iniciar chat": "Start chat",
   "Impulsado por": "Powered by",
   "SmartHospital · Impulsado por": "SmartHospital · Powered by",
   "Impulsado por Connect.IA": "Powered by Connect.IA",
